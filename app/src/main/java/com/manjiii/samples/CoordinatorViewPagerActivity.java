@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
@@ -45,6 +46,13 @@ public class CoordinatorViewPagerActivity extends AppCompatActivity {
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
+
+        //test
+        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30 * 2, getResources().getDisplayMetrics());
+        mViewPager.setPageMargin(-margin);
+        mViewPager.setOffscreenPageLimit(3);
+        // test end
+
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
     }
