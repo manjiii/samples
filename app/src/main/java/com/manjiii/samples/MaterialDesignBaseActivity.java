@@ -7,26 +7,30 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class CoordinatorViewPagerActivity extends AppCompatActivity {
+public class MaterialDesignBaseActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private ViewPager mViewPager;
-    private CoordinatorViewPagerActivity.SectionsPagerAdapter mSectionsPagerAdapter;
+    private MaterialDesignBaseActivity.SectionsPagerAdapter mSectionsPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coordinator_viewpager);
+        setContentView(R.layout.activity_material_design_base);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -39,28 +43,42 @@ public class CoordinatorViewPagerActivity extends AppCompatActivity {
             }
         });
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        mSectionsPagerAdapter = new MaterialDesignBaseActivity.SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
 
-        //test
-        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30 * 2, getResources().getDisplayMetrics());
-        mViewPager.setPageMargin(-margin);
-        mViewPager.setOffscreenPageLimit(3);
-        // test end
+        //peek pages
+//        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30 * 2, getResources().getDisplayMetrics());
+//        mViewPager.setPageMargin(-margin);
+//        mViewPager.setOffscreenPageLimit(3);
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
+    }
 
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_coordinator_viewpager, menu);
+        getMenuInflater().inflate(R.menu.menu_material_design_base, menu);
         return true;
     }
 
@@ -75,7 +93,33 @@ public class CoordinatorViewPagerActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
 
@@ -96,8 +140,8 @@ public class CoordinatorViewPagerActivity extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static CoordinatorViewPagerActivity.PlaceholderFragment newInstance(int sectionNumber) {
-            CoordinatorViewPagerActivity.PlaceholderFragment fragment = new CoordinatorViewPagerActivity.PlaceholderFragment();
+        public static MaterialDesignBaseActivity.PlaceholderFragment newInstance(int sectionNumber) {
+            MaterialDesignBaseActivity.PlaceholderFragment fragment = new MaterialDesignBaseActivity.PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
@@ -114,6 +158,7 @@ public class CoordinatorViewPagerActivity extends AppCompatActivity {
         }
     }
 
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -128,18 +173,17 @@ public class CoordinatorViewPagerActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return CoordinatorViewPagerActivity.PlaceholderFragment.newInstance(position + 1);
+            return MaterialDesignBaseActivity.PlaceholderFragment.newInstance(position + 1);
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            //total pages.
+            return 5;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-
 
             switch (position) {
                 case 0:
@@ -148,6 +192,10 @@ public class CoordinatorViewPagerActivity extends AppCompatActivity {
                     return "SECTION 2";
                 case 2:
                     return "SECTION 3";
+                case 3:
+                    return "SECTION 4";
+                case 4:
+                    return "SECTION 5";
             }
             return null;
         }
