@@ -35,6 +35,14 @@
             android:name=".TransitionFadeActivity"
             android:label="@string/title_activity_transition_fade"
             android:theme="@style/AppTheme.Base.Fade" />
+        <activity
+            android:name=".TransitionSharedElementActivity"
+            android:label="@string/title_activity_transition_shared_element"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TransitionSharedElementMultipleActivity"
+            android:label="@string/title_activity_transition_shared_element_multiple"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

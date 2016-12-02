@@ -98,4 +98,9 @@
     <string name="title_activity_transition_slide">Transition Slide</string>
     <string name="title_activity_transition_explode">Transition Explode</string>
     <string name="title_activity_transition_fade">Transition Fade</string>
+    <string name="title_activity_transition_shared_element">Transition Shared Element</string>
+    <string name="title_activity_transition_shared_element_multiple">
+        Transition Shared Element(Multiple)
+    </string>
+    <string name="kanahei_copyright">image file[カナヘイの隠れ家]:http://www.kanahei.com/</string>
 </resources>

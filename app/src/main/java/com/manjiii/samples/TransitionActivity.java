@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class TransitionActivity extends AppCompatActivity {
 
@@ -43,6 +45,37 @@ public class TransitionActivity extends AppCompatActivity {
             }
         });
 
+
+        Button button4 = (Button) findViewById(R.id.shared_activity_button);
+        button4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                ImageView iv = (ImageView) findViewById(R.id.usagi1);
+                Intent intent = new Intent(TransitionActivity.this, TransitionSharedElementActivity.class);
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(TransitionActivity.this, iv, "imageKanahei").toBundle());
+            }
+        });
+
+
+        Button button5 = (Button) findViewById(R.id.shared_multiple_activity_button);
+        button5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                ImageView iv = (ImageView) findViewById(R.id.usagi2);
+                String sharedElementName = "imageKanahei2";
+
+                ImageView iv2 = (ImageView) findViewById(R.id.usagi_pisuke1);
+                String sharedElementName2 = "imageKanahei3";
+
+                Intent intent = new Intent(TransitionActivity.this, TransitionSharedElementMultipleActivity.class);
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(TransitionActivity.this,
+                        new Pair<View, String>(iv, sharedElementName),
+                        new Pair<View, String>(iv2, sharedElementName2)).toBundle());
+
+
+
+            }
+        });
 
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
