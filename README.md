@@ -1,6 +1,6 @@
-# Android samples (for me)
+# Android samples ( for me )
 
-## MaterialDesginBaseActivity
+## DesginBase
 This acitivity is base activity for material designed app.
 
 includes followings.
@@ -10,3 +10,9 @@ includes followings.
 - FloatingActionButton
 - ViewPager
 - PagerTabStrip
+
+## Transition
+Transition samples.
+- slide
+- explode
+- fade
