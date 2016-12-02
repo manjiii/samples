@@ -91,7 +91,11 @@
     </string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_material_design_base">Material Design Base</string>
+    <string name="title_activity_material_design_base">Design Base</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_transition">Transition</string>
+    <string name="title_activity_transition_slide">Transition Slide</string>
+    <string name="title_activity_transition_explode">Transition Explode</string>
+    <string name="title_activity_transition_fade">Transition Fade</string>
 </resources>

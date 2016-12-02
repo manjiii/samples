@@ -55,7 +55,7 @@ public class MaterialDesignBaseActivity extends AppCompatActivity
         mSectionsPagerAdapter = new MaterialDesignBaseActivity.SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) findViewById(R.id.viewPager);
 
         //peek pages
 //        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30 * 2, getResources().getDisplayMetrics());

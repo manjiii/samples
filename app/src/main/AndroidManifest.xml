@@ -19,6 +19,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".TransitionActivity"
+            android:label="@string/title_activity_transition"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TransitionSlideActivity"
+            android:label="@string/title_activity_transition_slide"
+            android:theme="@style/AppTheme.Base.Slide" />
+        <activity
+            android:name=".TransitionExplodeActivity"
+            android:label="@string/title_activity_transition_explode"
+            android:theme="@style/AppTheme.Base.Explode" />
+        <activity
+            android:name=".TransitionFadeActivity"
+            android:label="@string/title_activity_transition_fade"
+            android:theme="@style/AppTheme.Base.Fade" />
     </application>
 
 </manifest>
