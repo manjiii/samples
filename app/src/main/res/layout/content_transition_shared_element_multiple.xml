@@ -14,40 +14,45 @@
     tools:showIn="@layout/activity_transition_shared_element_multiple">
 
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/usagi3"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:scaleType="fitCenter"
-            android:transitionName="imageKanahei2"
-            app:srcCompat="@drawable/usagi3"
-            android:layout_centerHorizontal="true" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/usagi3"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:scaleType="fitCenter"
+                android:transitionName="imageKanahei2"
+                app:srcCompat="@drawable/usagi3"
+                android:layout_centerHorizontal="true" />
 
 
-        <ImageView
-            android:id="@+id/usagi_pisuke2"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:transitionName="imageKanahei3"
-            app:srcCompat="@drawable/usagi_pisuke2"
-            android:scaleType="fitCenter"
-            android:layout_below="@+id/usagi3"
-            android:layout_marginTop="20dp"
-            android:layout_centerInParent="true" />
+            <ImageView
+                android:id="@+id/usagi_pisuke2"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:transitionName="imageKanahei3"
+                app:srcCompat="@drawable/usagi_pisuke2"
+                android:scaleType="fitCenter"
+                android:layout_below="@+id/usagi3"
+                android:layout_marginTop="20dp"
+                android:layout_centerInParent="true" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:text="@string/kanahei_copyright"
+                android:layout_below="@+id/usagi_pisuke2"
+                android:layout_margin="20dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:autoLink="web"
-        android:text="@string/kanahei_copyright" />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

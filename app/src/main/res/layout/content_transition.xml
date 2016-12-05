@@ -92,22 +92,20 @@
                 android:layout_toEndOf="@+id/usagi2"
                 android:layout_marginStart="20dp" />
 
-
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/usagi_pisuke1"
+                android:autoLink="web"
+                android:text="@string/kanahei_copyright"
+                android:layout_margin="20dp" />
 
 
         </RelativeLayout>
     </ScrollView>
 
     <!-- icon link -->
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:autoLink="web"
-        android:text="@string/kanahei_copyright" />
 
 
 </RelativeLayout>
